@@ -1,0 +1,22 @@
+.products-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    min-height: calc(100vh - 80px);
+}
+.order-summary {
+    background-color: #ff9900;
+    padding: 9px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: -1;
+    padding-top: 80px;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 45px;
+    max-width: 100%;
+    padding: 30px 60px;
+}
