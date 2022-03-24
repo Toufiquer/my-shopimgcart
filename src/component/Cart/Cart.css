@@ -1,0 +1,26 @@
+.cart {
+    margin: 5px 9px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 9px;
+}
+.cart img {
+    border: 1px groove black;
+    padding: 2px;
+    width: 150px;
+}
+.cart .details {
+    text-align: start;
+    padding: 0 9px;
+    border: 1px groove black;
+}
+.cart h2,
+p {
+    margin: 0;
+}
+.view-button {
+    width: 120px;
+    border: 1px groove black;
+    padding: 9px;
+}

@@ -1,0 +1,13 @@
+.single-button button {
+    border: 1px groove black;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-bottom: none;
+    width: 100%;
+}
+.single-button button:hover {
+    cursor: pointer;
+    background-color: rgb(43, 43, 43);
+    color: white;
+}

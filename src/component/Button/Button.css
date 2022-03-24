@@ -1,0 +1,18 @@
+.button {
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+}
+.button button {
+    border: 1px groove black;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-bottom: none;
+}
+.button button:hover {
+    cursor: pointer;
+    background-color: rgb(43, 43, 43);
+    color: white;
+}

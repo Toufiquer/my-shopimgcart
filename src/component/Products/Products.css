@@ -1,0 +1,15 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    min-height: 100vh;
+}
+.products-container {
+    background-color: rgb(184, 184, 184);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 9px;
+    padding: 30px 9px;
+}
+.cart-container {
+    background-color: rgb(138, 138, 138);
+}

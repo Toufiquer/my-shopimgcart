@@ -1,0 +1,17 @@
+.total-cart h3 {
+    text-align: center;
+    color: yellow;
+}
+.total-cart {
+    background-color: rgb(65, 65, 65);
+    position: sticky;
+    top: 0;
+    border: 1px groove black;
+    margin: 0 6px;
+    color: white;
+    text-align: start;
+    border: 4px groove white;
+}
+.total-cart .details {
+    padding-left: 9px;
+}

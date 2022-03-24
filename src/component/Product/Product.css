@@ -1,0 +1,21 @@
+.product-item {
+    border: 1px groove black;
+    background-color: rgb(190, 190, 190);
+    position: relative;
+    min-height: 500px;
+}
+.product-item img {
+    height: 200px;
+    width: 300px;
+    border: 1px groove black;
+    margin: 5px;
+}
+
+.product-item .button:first-child {
+    border-right: 1px solid;
+}
+.product-item .button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
