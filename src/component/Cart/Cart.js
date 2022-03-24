@@ -1,22 +1,30 @@
 import React from "react";
-import logo from "../img/logo.svg";
 import Button from "../Button/Button";
 import "./Cart.css";
-const Cart = () => {
+const Cart = props => {
+    let { name, category, img, quantity, id } = props.product;
+    let { firstActionCart, secondActionCart } = props;
+    // console.log(name, category, img, quantity);
+
+    // console.log(firstActionCart);
+    // console.log(secondActionCart);
     return (
         <div className="cart">
-            <img src={logo} alt="" />
+            <img src={img} alt="" />
             <div className="details">
-                <h2>Name: Item name.</h2>
-                <p>
-                    This is product details. This is product details. This is
-                    product details. This is product details. This is product
-                    details. This is product details.{" "}
-                </p>
+                <h2>Name: {name}</h2>
+                <p>{category}</p>
             </div>
             <div className="view-button">
-                <h3>Item: 4</h3>
-                <Button firstText="+" secondText="-"></Button>
+                <h3>Item: {quantity}</h3>
+                <Button
+                    firstAction={firstActionCart}
+                    secondAction={secondActionCart}
+                    id={id}
+                    fullProduct={props.product}
+                    firstText="+"
+                    secondText="-"
+                ></Button>
             </div>
         </div>
     );

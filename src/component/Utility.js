@@ -25,8 +25,13 @@ let actionDB = (isAction, id) => {
         let getItem = getItemFromDB();
         let isExist = getItem[id];
         if (isExist) {
-            getItem[id] -= 1;
-            localStorage.setItem("my-shopping-cart", JSON.stringify(getItem));
+            if (getItem[id] > 0) {
+                getItem[id] -= 1;
+                localStorage.setItem(
+                    "my-shopping-cart",
+                    JSON.stringify(getItem)
+                );
+            }
         }
     }
 };

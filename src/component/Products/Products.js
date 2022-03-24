@@ -37,6 +37,7 @@ const Products = () => {
             // summary
             let newProductsDB = [];
             let exist = dBProducts.find(product => product.id === id);
+            console.log(exist);
             if (!exist) {
                 fullProducts.quantity = 1;
                 newProductsDB = [...dBProducts, fullProducts];
@@ -87,7 +88,12 @@ const Products = () => {
         <div className="main-container">
             <div className="first-container">
                 <div className="view-container">
-                    <ViewItem firstAction={isAction}></ViewItem>
+                    <ViewItem
+                        products={dBProducts}
+                        firstAction={isAction}
+                        firstActionCart={addOrRemove}
+                        secondActionCart={addOrRemove}
+                    ></ViewItem>
                 </div>
                 <div className="products-container">
                     {products.map(product => (

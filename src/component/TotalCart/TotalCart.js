@@ -4,7 +4,7 @@ import SingleButton from "../SingleButton/SingleButton";
 import "./TotalCart.css";
 const TotalCart = ({ viewOrder, closeOrder, dbData, clearDB }) => {
     // console.log(dbData, dbData.length);
-    console.log(dbData);
+    // console.log(dbData);
 
     let totalPrice = 0;
     let shipping = 0;
@@ -13,6 +13,7 @@ const TotalCart = ({ viewOrder, closeOrder, dbData, clearDB }) => {
     for (let product of dbData) {
         quantity = product.quantity;
         if (quantity > 0) {
+            totalItem += quantity;
             totalPrice += product.price * quantity;
             shipping += product.shipping * quantity;
         }
@@ -23,7 +24,7 @@ const TotalCart = ({ viewOrder, closeOrder, dbData, clearDB }) => {
         <div className="total-cart">
             <div className="details">
                 <h3>Summary</h3>
-                <h4>Total Item: {dbData.length}</h4>
+                <h4>Total Item: {totalItem}</h4>
                 <h4>Total Price: {totalPrice}</h4>
                 <h4>Total Tax: {tax}</h4>
                 <h4>Total shipping: {shipping}</h4>
