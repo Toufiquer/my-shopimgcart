@@ -1,0 +1,39 @@
+.item {
+    border: 1px groove #95a0a7;
+    position: relative;
+    min-height: 520px;
+}
+.item img {
+    width: 286px;
+    margin: 7px;
+}
+.item .details {
+    padding: 9px;
+    padding-top: 0;
+}
+.item .details h2,
+p {
+    color: #0e161a;
+    font-size: 21px;
+    line-height: 25px;
+    margin: 6px 0;
+}
+.item small {
+    font-size: 12px;
+    line-height: 14px;
+}
+.add-to-cart button {
+    width: 100%;
+    padding: 14px;
+    background: #ffe0b3;
+    font-size: 15px;
+    line-height: 18px;
+    color: #0e161a;
+    position: absolute;
+    border: none;
+    bottom: 0px;
+}
+.add-to-cart button:hover {
+    background: orange;
+    cursor: pointer;
+}

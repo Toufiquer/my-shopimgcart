@@ -31,6 +31,7 @@ const Product = ({ product, firstAction, secondAction }) => {
             <Button
                 firstAction={firstAction}
                 secondAction={secondAction}
+                fullProduct={product}
                 id={id}
                 firstText="Add"
                 secondText="Remove"

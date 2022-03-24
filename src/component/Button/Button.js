@@ -6,14 +6,17 @@ const Button = ({
     firstAction,
     secondAction,
     id,
-    stock,
+    fullProduct,
+    clearDB,
 }) => {
     return (
         <div className="button">
             {/* First Action for add item  */}
-            <button onClick={() => firstAction(true, id)}>{firstText}</button>
+            <button onClick={() => firstAction(true, id, fullProduct)}>
+                {firstText}
+            </button>
             {/* Second Action for remove item */}
-            <button onClick={() => secondAction(false, id)}>
+            <button onClick={() => secondAction(false, id, fullProduct, true)}>
                 {secondText}
             </button>
         </div>

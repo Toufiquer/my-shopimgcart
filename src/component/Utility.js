@@ -1,3 +1,5 @@
+// import React, { useEffect, useState } from "react";
+// import { useState } from "react";
 let getItemFromDB = () => {
     let getItem = {};
     let getItemDB = localStorage.getItem("my-shopping-cart");
@@ -28,4 +30,16 @@ let actionDB = (isAction, id) => {
         }
     }
 };
-export { getItemFromDB, actionDB };
+let findProduct = (id, products) => {
+    let getItemDB = getItemFromDB();
+    let newProductDB = [];
+    for (let id in getItemDB) {
+        let newItem = products.find(product => product.id === id);
+        if (newItem) {
+            let quantity = getItemDB[id];
+            newItem.quantity = quantity;
+            newProductDB.push(newItem);
+        }
+    }
+};
+export { getItemFromDB, actionDB, findProduct };
