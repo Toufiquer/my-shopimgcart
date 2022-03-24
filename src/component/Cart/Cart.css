@@ -25,3 +25,9 @@ p {
     border: 1px groove black;
     padding: 9px;
 }
+.cart .sub-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 500;
+    /* display: inline; */
+}

@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
 import "./ViewItem.css";
+import { getItemFromDB } from "../Utility";
 const ViewItem = ({
     firstAction,
     products,
     firstActionCart,
     secondActionCart,
 }) => {
-    let newProducts = [];
-    for (let product of products) {
-        if (product.quantity > 0) {
-            newProducts.push(product);
+    const [orderCart, SetOrderCart] = useState([]);
+    useEffect(() => {
+        let newProductsDB = getItemFromDB();
+        let newProducts = [];
+        for (let id in newProductsDB) {
+            let productQuantity = newProductsDB[id];
+            let newProduct = products.find(product => product.id === id);
+            if (newProduct && productQuantity !== 0) {
+                newProducts.push(newProduct);
+            }
         }
-    }
+        SetOrderCart(newProducts);
+    }, [products]);
+
     let displayStyle = {
         display: "none",
     };
     if (firstAction) {
-        // console.log("true");
         displayStyle = {
             display: "block",
         };
@@ -28,7 +36,7 @@ const ViewItem = ({
     }
     return (
         <div style={displayStyle} className="view-item-container">
-            {newProducts.map(product => (
+            {orderCart.map(product => (
                 <Cart
                     firstActionCart={firstActionCart}
                     secondActionCart={secondActionCart}

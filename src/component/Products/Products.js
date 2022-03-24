@@ -33,11 +33,11 @@ const Products = () => {
     let addOrRemove = (isAction, id, fullProducts) => {
         // if isAction is true then add
         if (isAction) {
-            actionDB(isAction, id);
+            actionDB(isAction, id, fullProducts.stock);
             // summary
             let newProductsDB = [];
             let exist = dBProducts.find(product => product.id === id);
-            console.log(exist);
+            // console.log(exist);
             if (!exist) {
                 fullProducts.quantity = 1;
                 newProductsDB = [...dBProducts, fullProducts];
