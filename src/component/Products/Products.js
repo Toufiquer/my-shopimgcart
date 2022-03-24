@@ -34,11 +34,38 @@ const Products = () => {
         // if isAction is true then add
         if (isAction) {
             actionDB(isAction, id);
-
-            // actionSummary(isAction, id);
+            // summary
+            let newProductsDB = [];
+            let exist = dBProducts.find(product => product.id === id);
+            if (!exist) {
+                fullProducts.quantity = 1;
+                newProductsDB = [...dBProducts, fullProducts];
+                // console.log("true");
+            } else {
+                let rest = dBProducts.filter(
+                    product => product.id !== fullProducts.id
+                );
+                exist.quantity += 1;
+                newProductsDB = [...rest, exist];
+                // console.log("false");
+            }
+            SetDBProducts(newProductsDB);
+            // console.log(exist, newProductsDB);
         } else {
             actionDB(isAction, id);
             // actionSummary(isAction, id);
+
+            // summary
+            let newProductsDB = [];
+            let exist = dBProducts.find(product => product.id === id);
+            if (exist.quantity > 0) {
+                let rest = dBProducts.filter(
+                    product => product.id !== fullProducts.id
+                );
+                exist.quantity -= 1;
+                newProductsDB = [...rest, exist];
+                SetDBProducts(newProductsDB);
+            }
         }
     };
     // viewOrder is return a truthy value to display none or display block
@@ -53,6 +80,7 @@ const Products = () => {
         if (!isClearDB) {
             localStorage.removeItem("my-shopping-cart");
             SetDBProducts([]);
+            console.clear();
         }
     };
     return (
