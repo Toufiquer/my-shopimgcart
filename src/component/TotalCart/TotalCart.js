@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import SingleButton from "../SingleButton/SingleButton";
 import "./TotalCart.css";
-const TotalCart = () => {
+const TotalCart = ({ viewOrder, closeOrder }) => {
     return (
         <div className="total-cart">
             <div className="details">
@@ -13,8 +13,15 @@ const TotalCart = () => {
                 <h4>Total shipping: </h4>
                 <h4>Grand Total: </h4>
             </div>
-            <Button firstText="Place Order" secondText="Cancel Order"></Button>
-            <SingleButton firstText="Close Order"></SingleButton>
+            <Button
+                firstAction={viewOrder}
+                firstText="View Order"
+                secondText="Cancel Order"
+            ></Button>
+            <SingleButton
+                firstAction={closeOrder}
+                firstText="Close Order"
+            ></SingleButton>
         </div>
     );
 };

@@ -1,9 +1,9 @@
 import React from "react";
 import "./SingleButton.css";
-const SingleButton = ({ firstText }) => {
+const SingleButton = ({ firstAction, firstText }) => {
     return (
         <div className="single-button">
-            <button>{firstText}</button>
+            <button onClick={() => firstAction(false)}>{firstText}</button>
         </div>
     );
 };
