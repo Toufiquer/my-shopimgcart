@@ -1,21 +1,20 @@
 import React from "react";
 import Button from "../Button/Button";
 import "./Product.css";
-const Product = ({ product }) => {
+const Product = ({ product, firstAction, secondAction }) => {
     let {
         category,
         id,
         img,
         name,
         price,
-        quantity,
+        // quantity,
         ratings,
         ratingsCount,
         seller,
         shipping,
         stock,
     } = product;
-    console.log(product);
     return (
         <div className="product-item">
             <img src={img} alt="" />
@@ -29,7 +28,13 @@ const Product = ({ product }) => {
                 <p>Rating: {ratings}</p>
                 <p>Ratings Count: {ratingsCount}</p>
             </div>
-            <Button firstText="Add" secondText="Remove"></Button>
+            <Button
+                firstAction={firstAction}
+                secondAction={secondAction}
+                id={id}
+                firstText="Add"
+                secondText="Remove"
+            ></Button>
         </div>
     );
 };

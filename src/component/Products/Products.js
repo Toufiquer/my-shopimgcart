@@ -2,20 +2,29 @@ import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
 import TotalCart from "../TotalCart/TotalCart";
 import ViewItem from "../ViewItem/ViewItem";
+import { actionDB } from "../Utility";
 
 // import Cart from "../Cart/Cart";
 import "./Products.css";
 const Products = () => {
-    const [isAction, SetIsAction] = useState(false);
-    const [products, SetProducts] = useState([]);
+    const [isAction, SetIsAction] = useState(false); // for view Order Box
+    const [products, SetProducts] = useState([]); // fetch data from products.json=> public
     useEffect(() => {
         fetch("products.json")
             .then(res => res.json())
             .then(data => SetProducts(data));
     }, []);
-
-    console.log(isAction);
-    let viewOrder = isAction => {
+    // Add or Remove from DB and Cart
+    let addOrRemove = (isAction, id) => {
+        // if isAction is true then add
+        if (isAction) {
+            actionDB(isAction, id);
+        } else {
+            actionDB(isAction, id);
+        }
+    };
+    // viewOrder is return a truthy value to display none or display block
+    let orderAction = isAction => {
         if (isAction) {
             SetIsAction(true);
         } else {
@@ -30,14 +39,19 @@ const Products = () => {
                 </div>
                 <div className="products-container">
                     {products.map(product => (
-                        <Product product={product}></Product>
+                        <Product
+                            product={product}
+                            key={product.id}
+                            firstAction={addOrRemove}
+                            secondAction={addOrRemove}
+                        ></Product>
                     ))}
                 </div>
             </div>
             <div className="cart-container">
                 <TotalCart
-                    viewOrder={viewOrder}
-                    closeOrder={viewOrder}
+                    viewOrder={orderAction}
+                    closeOrder={orderAction}
                 ></TotalCart>
             </div>
         </div>
