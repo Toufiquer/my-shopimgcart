@@ -1,15 +1,33 @@
 import React from "react";
 import Button from "../Button/Button";
-import logo from "../img/logo.svg";
 import "./Product.css";
-const Product = () => {
+const Product = ({ product }) => {
+    let {
+        category,
+        id,
+        img,
+        name,
+        price,
+        quantity,
+        ratings,
+        ratingsCount,
+        seller,
+        shipping,
+        stock,
+    } = product;
+    console.log(product);
     return (
         <div className="product-item">
-            <img src={logo} alt="" />
+            <img src={img} alt="" />
             <div className="details">
-                <h2>This is Heading.</h2>
-                <h2>This is Heading.</h2>
-                <h2>This is Heading.</h2>
+                <h3>{name}</h3>
+                <h4>Price: {price}</h4>
+                <p>Category: {category}</p>
+                <p>Seller: {seller}</p>
+                <p>Shipping: {shipping}</p>
+                <p>Stock: {stock}</p>
+                <p>Rating: {ratings}</p>
+                <p>Ratings Count: {ratingsCount}</p>
             </div>
             <Button firstText="Add" secondText="Remove"></Button>
         </div>

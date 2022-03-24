@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
 import TotalCart from "../TotalCart/TotalCart";
 import ViewItem from "../ViewItem/ViewItem";
@@ -7,6 +7,13 @@ import ViewItem from "../ViewItem/ViewItem";
 import "./Products.css";
 const Products = () => {
     const [isAction, SetIsAction] = useState(false);
+    const [products, SetProducts] = useState([]);
+    useEffect(() => {
+        fetch("products.json")
+            .then(res => res.json())
+            .then(data => SetProducts(data));
+    }, []);
+
     console.log(isAction);
     let viewOrder = isAction => {
         if (isAction) {
@@ -22,10 +29,9 @@ const Products = () => {
                     <ViewItem firstAction={isAction}></ViewItem>
                 </div>
                 <div className="products-container">
-                    <Product></Product>
-                    <Product></Product>
-                    <Product></Product>
-                    <Product></Product>
+                    {products.map(product => (
+                        <Product product={product}></Product>
+                    ))}
                 </div>
             </div>
             <div className="cart-container">
