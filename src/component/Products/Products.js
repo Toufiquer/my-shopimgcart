@@ -37,16 +37,22 @@ const Products = () => {
             // summary
             let newProductsDB = [];
             let exist = dBProducts.find(product => product.id === id);
-            // console.log(exist);
+            // Find the stock in json file
+            let newItem = products.find(product => product.id === id);
             if (!exist) {
-                fullProducts.quantity = 1;
+                if (newItem.stock > 0) {
+                    fullProducts.quantity = 1;
+                }
                 newProductsDB = [...dBProducts, fullProducts];
                 // console.log("true");
             } else {
                 let rest = dBProducts.filter(
                     product => product.id !== fullProducts.id
                 );
-                exist.quantity += 1;
+
+                if (newItem.stock > exist.quantity) {
+                    exist.quantity += 1;
+                }
                 newProductsDB = [...rest, exist];
                 // console.log("false");
             }
